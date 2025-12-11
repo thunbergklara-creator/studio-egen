@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio-Egen-Galleri</title>
+
+    <!-- Google Fonts -->
+    <!-- Används efter önskemål från beställare -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-index">
+
+    <!-- HEADER -->
+    <header>
+        <!-- Vid klick på loggor, hamnar användaren på startisdan -->
+        <div class="header-left">
+            <a href="index.html"><img src="images/logo-header-icon.svg" alt="Studio Egen logga 1" class="logo-main"></a>
+            <a href="index.html"><img src="images/logo-header-text.svg" alt="Studio Egen logga 2"
+                    class="logo-secondary"></a>
+        </div>
+
+        <!-- Huvudnavigation -->
+        <nav class="main-nav">
+            <ul>
+                <!-- Länkar användare till bestämda sidor -->
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="services-and-how-it-works.html">Våra tjänster</a></li>
+                <li><a href="products.html" class="active">Shoppa & designa</a></li>
+                <li><a href="gallery.html">Galleri</a></li>
+                <li><a href="campaign.html">Kampanjer</a></li>
+                <li><a href="about-us.html">Om oss</a></li>
+            </ul>
+        </nav>
+
+        <!--- Användarnavigation (kundservice & varukorg) -->
+        <nav class="user-nav">
+            <ul>
+                <!-- Vid klick på respektive länk ska användaren tas till rätt sida -->
+                <li>
+                    <a href="check-out.html">
+                        <img src="images/cart.png" alt="Varukorg" class="nav-icon">
+                        Din varukorg
+                    </a>
+                </li>
+                <li>
+                    <a href="customerservice.html">
+                        <img src="images/phone.png" alt="Kundservice" class="nav-icon">
+                        Kundservice
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- SLUT HEADER -->
+
+    <!-- MAIN -->
+    <main>
+        <!-- Produktgalleri sektion -->
+        <section class="product-gallery">
+            <div class="product-gallery-wrapper">
+                <h1 class="product-gallery-title">Shoppa här</h1>
+                <h2 class="product-gallery-subtitle">Här kan du välja ett färdigt tryck eller skapa din helt egen design
+                </h2>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- T-shirt -->
+                <a href="tshirt-product.html" class="product-link">
+                    <article class="product-card tshirts">
+                        <h3>Bär din historia</h3>
+                        <h4>Personliga tröjor för dig som vill sticka ut</h4>
+                        <img src="images/tshirt-two-picture.webp" alt="T-shirt före och efter tryck">
+                        <p>Pris från: <strong>149;-</strong></p>
+                    </article>
+                </a>
+
+                <!-- Posters -->
+                <a href="posters-product.html" class="product-link">
+                    <article class="product-card posters">
+                        <h3>Fånga ögonblicket</h3>
+                        <h4>Personliga tryck för dina väggar</h4>
+                        <img src="images/poster-two-picture.webp" alt="Poster före och efter tryck">
+                        <p>Pris från: <strong>129;-</strong></p>
+                    </article>
+                </a>
+
+                <!-- Muggar -->
+                <a href="cup-product.html" class="product-link">
+                    <article class="product-card mugs">
+                        <h3>Starta dagen</h3>
+                        <h4>Skapa din unika favorit</h4>
+                        <img src="images/cup-two-picture.webp" alt="Mugg före och efter tryck">
+                        <p>Pris från: <strong>129;-</strong></p>
+                    </article>
+                </a>
+
+                <!-- Almanacka -->
+                <a href="calendar-product.html" class="product-link">
+                    <article class="product-card calendar">
+                        <h3>Planera mera</h3>
+                        <h4>Gör din almenacka personlig</h4>
+                        <img src="images/calendar-two-picture.webp" alt="Almanacka före och efter tryck">
+                        <p>Pris från: <strong>179;-</strong></p>
+                    </article>
+                </a>
+
+                <!-- Scarfs -->
+                <a href="scarf-product.html" class="product-link">
+                    <article class="product-card scarfs">
+                        <h3>Fantasin sätter gränser</h3>
+                        <h4>Bär din scarf hur du vill</h4>
+                        <img src="images/scarfs-two-picture.webp" alt="Scarf före och efter tryck">
+                        <p>Pris från: <strong>129;-</strong></p>
+                    </article>
+                </a>
+
+                <!-- Gör själv-kit -->
+                <a href="diy-product.html" class="product-link">
+                    <article class="product-card print-kit">
+                        <h3>Tryck själv</h3>
+                        <h4>Beställ hem kit</h4>
+                        <img src="images/tools.webp" alt="Redskap för tryck">
+                        <p>Pris från: <strong>649;-</strong></p>
+                    </article>
+                </a>
+
+            </div>
+        </section>
+    </main>
+    <!-- SLUT MAIN -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Studio Egen</h3>
+                <p>Din partner för personliga tryck och unika skaparkit.</p>
+            </div>
+
+            <div>
+                <h3>Kontakt</h3>
+                <p class="contact-title">Kontakta oss</p>
+                <p>📧 hej@studioegen.se</p>
+                <p>📞 08-12 34 56 78</p>
+                <p>📍 Skapargatan 1, 111 11 Stockholm</p>
+            </div>
+
+            <div>
+                <h3>Öppettider</h3>
+                <p>Mån-Fre: 10.00-17.00</p>
+                <p>Lör: 11.00-15.00</p>
+                <p>Sön: Stängt</p>
+            </div>
+
+            <div>
+                <h3>Länkar</h3>
+                <!-- Köpvillkor har ingen faktiskt sida, enbart till för det visuella -->
+                <p><a href="#">Köpvillkor & integritetspolicy</a></p>
+                <p><a href="gallery.html">Galleri</a></p>
+                <p><a href="about-us.html">Om oss</a></p>
+                <p><a href="campaign.html">Kampanjer</a></p>
+                <p><a href="products.html">Shoppa och designa</a></p>
+                <p><a href="services-and-how-it-works.html">Våra tjänster</a></p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Följ oss</h3>
+                <p><img src="images/instagram.png" alt="Instagram" class="social-icon"> Instagram</p>
+                <p><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"> LinkedIn</p>
+                <p><img src="images/pinterest.png" alt="Pinterest" class="social-icon"> Pinterest</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio-Egen-Galleri</title>
+
+    <!-- Google Fonts -->
+    <!-- Används efter önskemål från beställare -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-index">
+
+    <!-- HEADER -->
+    <header>
+        <!-- Vid klick på loggor, hamnar användaren på startisdan -->
+        <div class="header-left">
+            <a href="index.html"><img src="images/logo-header-icon.svg" alt="Studio Egen logga 1" class="logo-main"></a>
+            <a href="index.html"><img src="images/logo-header-text.svg" alt="Studio Egen logga 2"
+                    class="logo-secondary"></a>
+        </div>
+
+        <!-- Huvudnavigation -->
+        <nav class="main-nav">
+            <ul>
+                <!-- Länkar användare till bestämda sidor -->
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="services-and-how-it-works.html">Våra tjänster</a></li>
+                <li><a href="products.html">Shoppa & designa</a></li>
+                <li><a href="gallery.html" class="active">Galleri</a></li>
+                <li><a href="campaign.html">Kampanjer</a></li>
+                <li><a href="about-us.html">Om oss</a></li>
+            </ul>
+        </nav>
+
+        <!--- Användarnavigation (kundservice & varukorg) -->
+        <nav class="user-nav">
+            <ul>
+                <!-- Vid klick på respektive länk ska användaren tas till rätt sida -->
+                <li>
+                    <a href="check-out.html">
+                        <img src="images/cart.png" alt="Varukorg" class="nav-icon">
+                        Din varukorg
+                    </a>
+                </li>
+                <li>
+                    <a href="customerservice.html">
+                        <img src="images/phone.png" alt="Kundservice" class="nav-icon">
+                        Kundservice
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- SLUT HEADER -->
+
+    <!-- MAIN -->
+    <main>
+        <!-- FÄRDIGA TRYCK -->
+        <section id="fardiga-tryck">
+            <h2>Inspireras av våra färdiga tryck</h2>
+            <p class="intro-text">Vilken blir din nästa favorit?</p>
+
+            <div class="gallery">
+                <div class="gallery-item"><img src="images/christmas.webp" alt="Färdigt tryck 1"></div>
+                <div class="gallery-item"><img src="images/tea-coffie.webp" alt="Färdigt tryck 2"></div>
+                <div class="gallery-item"><img src="images/sweater.webp" alt="Färdigt tryck 3"></div>
+                <div class="gallery-item"><img src="images/calendar.webp" alt="Färdigt tryck 4"></div>
+                <div class="gallery-item"><img src="images/female-blue.webp" alt="Färdigt tryck 5"></div>
+                <div class="gallery-item"><img src="images/posters-two.webp" alt="Färdigt tryck 6"></div>
+                <div class="gallery-item"><img src="images/color-cup-no-background.webp" alt="Färdigt tryck 7"></div>
+                <div class="gallery-item"><img src="images/girl-skateboard.webp" alt="Färdigt tryck 8"></div>
+                <div class="gallery-item"><img src="images/like-a-boss.webp" alt="Färdigt tryck 9"></div>
+                <div class="gallery-item"><img src="images/man.webp" alt="Färdigt tryck 10"></div>
+                <div class="gallery-item"><img src="images/chair-and-poster.webp" alt="Färdigt tryck 11"></div>
+                <div class="gallery-item"><img src="images/blue-poster.webp" alt="Färdigt tryck 11"></div>
+                <div class="gallery-item"><img src="images/bandana.webp" alt="Färdigt tryck 11"></div>
+            </div>
+        </section>
+
+
+        <!-- KUNDERS PROJEKT -->
+        <section id="kundprojekt">
+            <h2>Våra kunders projekt</h2>
+            <p>Svårt att välja design? Spana in våra kunders kreationer!</p>
+
+            <div class="gallery">
+                <div class="gallery-item"><img src="images/family.webp" alt="Projekt 1"></div>
+                <div class="gallery-item"><img src="images/spongebob.webp" alt="Projekt 2"></div>
+                <div class="gallery-item"><img src="images/orange.webp" alt="Projekt 3"></div>
+                <div class="gallery-item"><img src="images/mona-lisa.webp" alt="Projekt 4"></div>
+                <div class="gallery-item"><img src="images/cup-with-bow.webp" alt="Projekt 5"></div>
+                <div class="gallery-item"><img src="images/cup-black.webp" alt="Projekt 6"></div>
+                <div class="gallery-item"><img src="images/cup-white.webp" alt="Projekt 7"></div>
+            </div>
+
+            <!-- MOCKUP UPPLADDNINGSFORMULÄR -->
+            <form class="mock-upload-form">
+                <label for="customer-image" class="upload-label">
+                    Vill du att din unika design ska synas i vårt galleri?<br>
+                    <span>Ladda upp din bild här:</span>
+                </label>
+
+                <input type="file" id="customer-image" name="customer-image" accept="image/*">
+
+                <button type="button" class="cta upload-btn">Ladda upp</button>
+            </form>
+        </section>
+    </main>
+    <!-- SLUT MAIN-->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Studio Egen</h3>
+                <p>Din partner för personliga tryck och unika skaparkit.</p>
+            </div>
+
+            <div>
+                <h3>Kontakt</h3>
+                <p class="contact-title">Kontakta oss</p>
+                <p>📧 hej@studioegen.se</p>
+                <p>📞 08-12 34 56 78</p>
+                <p>📍 Skapargatan 1, 111 11 Stockholm</p>
+            </div>
+
+            <div>
+                <h3>Öppettider</h3>
+                <p>Mån-Fre: 10.00-17.00</p>
+                <p>Lör: 11.00-15.00</p>
+                <p>Sön: Stängt</p>
+            </div>
+
+            <div>
+                <h3>Länkar</h3>
+                <!-- Köpvillkor har ingen faktiskt sida, enbart till för det visuella -->
+                <p><a href="#">Köpvillkor & integritetspolicy</a></p>
+                <p><a href="gallery.html">Galleri</a></p>
+                <p><a href="about-us.html">Om oss</a></p>
+                <p><a href="campaign.html">Kampanjer</a></p>
+                <p><a href="products.html">Shoppa och designa</a></p>
+                <p><a href="services-and-how-it-works.html">Våra tjänster</a></p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Följ oss</h3>
+                <p><img src="images/instagram.png" alt="Instagram" class="social-icon"> Instagram</p>
+                <p><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"> LinkedIn</p>
+                <p><img src="images/pinterest.png" alt="Pinterest" class="social-icon"> Pinterest</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

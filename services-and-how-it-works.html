@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio-Egen-Galleri</title>
+
+    <!-- Google Fonts -->
+    <!-- Används efter önskemål från beställare -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-index">
+
+    <!-- HEADER -->
+    <header>
+        <!-- Vid klick på loggor, hamnar användaren på startisdan -->
+        <div class="header-left">
+            <a href="index.html"><img src="images/logo-header-icon.svg" alt="Studio Egen logga 1" class="logo-main"></a>
+            <a href="index.html"><img src="images/logo-header-text.svg" alt="Studio Egen logga 2"
+                    class="logo-secondary"></a>
+        </div>
+
+        <!-- Huvudnavigation -->
+        <nav class="main-nav">
+            <ul>
+                <!-- Länkar användare till bestämda sidor -->
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="services-and-how-it-works.html" class="active">Våra tjänster</a></li>
+                <li><a href="products.html">Shoppa & designa</a></li>
+                <li><a href="gallery.html">Galleri</a></li>
+                <li><a href="campaign.html">Kampanjer</a></li>
+                <li><a href="about-us.html">Om oss</a></li>
+            </ul>
+        </nav>
+
+        <!--- Användarnavigation (kundservice & varukorg) -->
+        <nav class="user-nav">
+            <ul>
+                <!-- Vid klick på respektive länk ska användaren tas till rätt sida -->
+                <li>
+                    <a href="check-out.html">
+                        <img src="images/cart.png" alt="Varukorg" class="nav-icon">
+                        Din varukorg
+                    </a>
+                </li>
+                <li>
+                    <a href="customerservice.html">
+                        <img src="images/phone.png" alt="Kundservice" class="nav-icon">
+                        Kundservice
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- SLUT HEADER -->
+
+    <!-- MAIN -->
+
+    <!-- Tjänster, full service -->
+    <main>
+        <section id="tjanster" class="section-padding">
+            <h1>Vi trycker åt dig!</h1>
+            <p>Låt oss hantera hela processen åt dig. Du laddar upp din design, väljer produkt och vi skickar ett
+                färdigt, professionellt resultat direkt hem till dig.</p>
+
+            <h2>Varför välja full service?</h2>
+            <ul>
+                <li><strong>Professionell kvalitet:</strong> Vår expertis och utrustning garanterar ett resultat som
+                    håller.</li>
+                <li><strong>Smidigt och enkelt:</strong> Perfekt när tiden är knapp eller när du vill vara säker på
+                    slutresultatet.</li>
+                <li><strong>Inget eget arbete:</strong> Vi sköter allt från förberedelser till frakt.</li>
+            </ul>
+
+            <h2>Så går det till</h2>
+            <ol>
+                <li><strong>Ladda upp din design</strong> - eller använd någon av våra färdiga mallar.</li>
+                <li><strong>Välj produkt</strong> - T-shirt, mugg, poster, bok m.m.</li>
+                <li><strong>Vi trycker med omsorg</strong> - alltid med kvalitetskontroll innan leverans.</li>
+                <li><strong>Leverans direkt till dig</strong> - spåra ditt paket via QR-kod.</li>
+            </ol>
+
+        </section>
+
+        <!-- Huvudsektion: Så funkar det -->
+        <section class="how-it-works">
+            <h2>Läs mer: Så här går det till!</h2>
+
+            <details class="steps-toggle">
+
+
+                <summary>Klicka här för att se hur du får ditt personliga tryck</summary>
+                <div class="grid-container-toggle">
+                    <div class="item-toggle-text1">
+                        <p><strong>Två vägar till samma mål: ditt unika tryck</strong><br>
+                            Oavsett om du vill att vi ska sköta allt eller själv vill uppleva skaparglädjen <br>
+                            - processen börjar med din idé.
+                            Här nedan ser du hur enkelt det är att få fram ditt personliga tryck.</p>
+
+                        <h3>Väg 1: "Vi trycker åt dig" - Full service</h3>
+                        <p>För dig som vill ha ett klart, färdigt resultat utan eget arbete</p>
+
+                        <h4>Steg-för-steg:</h4>
+                        <ol>
+                            <li>
+                                Välj produkt & ladda upp design
+                                <ul>
+                                    <li>Välj bland våra T-shirts, muggar, posters eller andra produkter</li>
+                                    <li>Ladda upp din färdiga design eller använd våra mallar</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Vi sköter magin
+                                <ul>
+                                    <li>Vi förbereder och kvalitetskontrollerar ditt tryck</li>
+                                    <li>Trycker med omsorg på din utvalda produkt</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Färdigt! Du får leverans
+                                <ul>
+                                    <li>Vi packar och skickar ditt unika alster direkt till dig</li>
+                                    <li>Spåra ditt paket via QR-kod</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <a href="products.html" class="cta-button">Visa produkter för full service</a>
+                    </div>
+
+                    <img class="item-toggle-img1" src="images/t-shirt-green-blue-square.webp"
+                        alt="t-shirt med färdigt tryck" width="400" height="400">
+
+                    <div class="item-toggle-text2">
+                        <h3>Väg 2: "Skapa-själv-kit" - Gör-det-själv</h3>
+                        <p>För dig som vill spara pengar och uppleva stoltheten av att själv ha skapat</p>
+
+                        <h4>Steg-för-steg:</h4>
+                        <ol>
+                            <li>
+                                Välj kit & ladda upp design
+                                <ul>
+                                    <li>Välj typ av kit (för textil, papper etc.)</li>
+                                    <li>Ladda upp din design - vi förbereder transfertrycket</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Få hem ditt kit
+                                <ul>
+                                    <li>Vi skickar ett kit med ditt färdigtryckta transfer, instruktioner och allt
+                                        material du
+                                        behöver</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Skapa själv - det är enkelt!
+                                <ul>
+                                    <li>Följ vår tydliga guide för att applicera trycket på dina egna föremål</li>
+                                    <li>Upplev meningen med att själv ha skapat något unikt</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <a href="products.html" class="cta-button">Utforska våra skapa-själv-kit</a>
+                    </div>
+
+                    <img class="item-toggle-img2" src="images/diy-print2.webp" alt=" färgglatt transfertryck"
+                        width="400" height="400">
+                </div>
+            </details>
+
+        </section>
+
+    </main>
+    <!-- SLUT MAIN -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Studio Egen</h3>
+                <p>Din partner för personliga tryck och unika skaparkit.</p>
+            </div>
+
+            <div>
+                <h3>Kontakt</h3>
+                <p class="contact-title">Kontakta oss</p>
+                <p>📧 hej@studioegen.se</p>
+                <p>📞 08-12 34 56 78</p>
+                <p>📍 Skapargatan 1, 111 11 Stockholm</p>
+            </div>
+
+            <div>
+                <h3>Öppettider</h3>
+                <p>Mån-Fre: 10.00-17.00</p>
+                <p>Lör: 11.00-15.00</p>
+                <p>Sön: Stängt</p>
+            </div>
+
+            <div>
+                <h3>Länkar</h3>
+                <!-- Köpvillkor har ingen faktiskt sida, enbart till för det visuella -->
+                <p><a href="#">Köpvillkor & integritetspolicy</a></p>
+                <p><a href="gallery.html">Galleri</a></p>
+                <p><a href="about-us.html">Om oss</a></p>
+                <p><a href="campaign.html">Kampanjer</a></p>
+                <p><a href="products.html">Shoppa och designa</a></p>
+                <p><a href="services-and-how-it-works.html">Våra tjänster</a></p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Följ oss</h3>
+                <p><img src="images/instagram.png" alt="Instagram" class="social-icon"> Instagram</p>
+                <p><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"> LinkedIn</p>
+                <p><img src="images/pinterest.png" alt="Pinterest" class="social-icon"> Pinterest</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

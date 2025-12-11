@@ -1,0 +1,2108 @@
+/* ==== STUDIO EGEN - STYLE.CSS ===== */
+
+/**
+* OBS!!!! Endast desktop version. Ej mobilanpassad.
+* Kommentarer finns på många ställen inledningsvis. Detta för att förklara funktionen av sådant som
+dyker upp första gången. Minskar längre ner i CSS. 
+* Eventuella dubletter och överskrivningar p.g.a. många learn by doing. 
+*/
+
+/* ==== GENERELLA GRUNDINSTÄLLNINGAR ========================================================================= */
+
+/* Layout bas - påverkar alla element och sidor i projektet, med undantag för enskild överskriving unik 
+CSS för specifika sektioner eller sidor. Se specifik CSS för unika delar. */
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    /**
+    * Bakgrundsfärg
+    * Dock använder vi bakgrunds images
+    */
+    background-color: linear-gradient(180deg, #EFEDED 0%, #F1F1F1 100%);
+    /* Textfärg */
+    color: #28502E;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    color: #28502E;
+}
+
+/* ===== HEADER ============================================================================================= */
+
+/* Headern är likadan och visas på samtliga sidor. */
+header {
+    /* Flexbox för att placera innehåll på samma rad */
+    display: flex;
+    /* Vertikal centrering av headerns innehåll */
+    align-items: center;
+    /* Placerar elementen med första till vänster och sista till höger */
+    justify-content: space-between;
+    /* Headerns höjd */
+    height: 100px;
+    /* Den inre marginal som skapar avstånd mellan elementets (header)innehåll och kanten): 
+    10px upp/ned, 20px vänster/höger */
+    padding: 10px 20px;
+    /* Bakgrundsfärg */
+    background-color: #FFF;
+    /* Understrykning längst ner i headern */
+    border-bottom: 2px solid #BBB5BD;
+}
+
+/* Logo sektion inom header */
+
+/* Del av headern som innehåller loggorna (vänster). Huvudlogga (logo-main) och sekundär logga (logo-secondary). */
+.header-left {
+    display: flex;
+    align-items: center;
+    /* Avstånd mellan loggorna. */
+    gap: 15px;
+    padding: 5px 10px;
+    /* Yttre ram runt. */
+    border: 2px solid #BBB5BD;
+    /* Rundade hörn. */
+    border-radius: 12px;
+    background-color: #FFF;
+    /* Skuggning för djup, mindre 3D-effekt. */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(255, 255, 255, 0.3) inset;
+}
+
+/* Huvudlogga (logo-main). */
+.logo-main {
+    height: 90px;
+    /* Blocknivåelement (tar upp hela radens bredd, börjar på ny rad, styrning höjd/bredd/padding/margin)
+ för korrekt placering och dimensionering. */
+    display: block;
+    border-radius: 8px;
+    /* Animation vid hover-effekter. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt för huvudlogga (logo-main) */
+.logo-main:hover {
+    /* Mindre förstoring och rotation. Ger 3D-känsla vid hover. --- */
+    transform: scale(1.08) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Sekundär logga (logo-secondary). */
+.logo-secondary {
+    height: 35px;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt för sekundär logga (logo-secondary) */
+.logo-secondary:hover {
+    transform: scale(1.05) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Navigationsektion (menyn) inom header */
+
+/* Huvudnavigation (Hem/Våra tjänster/Shoppa & designa/Galleri/Kampanjer/Om oss */
+/* Lista som innehåller navigationslänkarna */
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+/* Stil för varje navigationslänk */
+.main-nav a {
+    padding: 8px 14px;
+    /* Fet stil på texten */
+    font-weight: 700;
+    /* Textstorlek på länkarna */
+    font-size: 1.05rem;
+    /* Länkarnas färg */
+    color: #4E598C;
+    /* För att kunna positionera pseudo-element (virtuellt element, finns ej i HTML men kan stylas) 
+    som underline (understrykning) */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover och aktiv länk-effekt */
+.main-nav a:hover,
+.main-nav a.active {
+    /* Färgändring vid hover/aktiv */
+    color: #7D4F50;
+    /* Länken förstoras lite vid hover/aktiv */
+    transform: scale(1.05);
+}
+
+/* Understrykning (underline)-effekt med pseudo-element */
+.main-nav a::after {
+    /* Innehåll i pseudo-element, tomt men synligt via bakgrund */
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color: #7D4F50;
+    transition: width 0.3s ease;
+    /* Positionerar pseudo-elementet (::after, virtuellt element, läggs till efter innehållet
+    i <a>) absolute, med utgångspunkt från länken (<a>) som det hör till. Detta gör att underline-effekten kan placeras 
+    exakt under texten. */
+    position: absolute;
+    /* Placering under texten */
+    bottom: -5px;
+    /* Start från vänsterkant */
+    left: 0;
+}
+
+/* Utvidga understrykning (underline) vid hover/aktiv länk */
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/**
+* Användarnavigation (Varukorg/Kundservice) inom header.
+* Listan i användarnavigationen.
+*/
+.user-nav ul {
+    display: flex;
+    /* Staplar länkarna i kolumnen  */
+    flex-direction: column;
+    gap: 6px;
+    /* Länkarna placeras mot högerkanten */
+    align-items: flex-end;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Länkar i användarnavigationen */
+.user-nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #4E598C;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-effekt på länker */
+.user-nav a:hover {
+    color: #7D4F50;
+}
+
+/* Ikoner (kundvagen och telefonen) i användarnavigationen */
+.user-nav .nav-icon {
+    width: 45px;
+    height: 45px;
+    /* Blocknivå men inline för radplacering (inline = placeras i samma rad som andra element) */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover-effekt på ikoner när användaren hovrar över */
+.user-nav a:hover .nav-icon {
+    /* Förstoring av ikoner vid hover */
+    transform: scale(1.1);
+}
+
+
+/* ===== MAIN LAYOUT ======================================================================================== */
+
+/** 
+* Allt unikt innehåll (som skiljer sig från sida till sida, till skillnad
+ från header och footer som är samma överallt).
+* Huvudcontainer (container = element som innehåller annat innehåll) för sidans primära innehåll
+ (allt det viktigaste som inte är header/footer).
+*/
+
+main {
+    padding: 40px 20px;
+    /* Max bredd på innehåll */
+    max-width: 1400px;
+    /* Centrerar main-sektion horisontellt */
+    margin: auto;
+}
+
+/* Sektioner inuti själva main */
+main section {
+    /* Avstånd mellan sektionerna */
+    margin-bottom: 100px;
+}
+
+
+/* ===== GALLERI SIDA ======================================================================================= */
+
+/* Sektion för färdiga tryck */
+#fardiga-tryck {
+    padding: 80px 20px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    /* Fade-in animation */
+    animation: fadeBlock 0.8s ease-out forwards;
+}
+
+/* Titel (rubrik) inne i sektionen för färdiga tryck */
+#fardiga-tryck h2 {
+    /* Centrerad rubrik */
+    text-align: center;
+    /* Bredare bokstavsavstånd */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-size: 2.6rem;
+    /* Utgångsläge för animation */
+    opacity: 0;
+    /* Lätt uppåt-fade-in */
+    animation: fadeInUp 0.9s ease forwards;
+    border-bottom: none;
+    display: block;
+    padding-bottom: 0;
+    /* Utrymme under rubriken */
+    margin: 0 auto 25px;
+}
+
+/* Underrubrik inne i sektionen för färdiga tryck */
+#fardiga-tryck p.intro-text {
+    text-align: center;
+    font-size: 1.2rem;
+    /* Begränsad bredd för bättre läsbarhet */
+    max-width: 600px;
+    /* Centrering + avstånd nedåt */
+    margin: 0 auto 35px auto;
+    opacity: 0.9;
+    color: #4E598C;
+    /* Bättre läsbarhet */
+    line-height: 1.5;
+    /* Senare fade-in */
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Bildgalleri, masonry-style (olika höga element staplas i smala kolumner och hamnar där det finns plats. */
+#fardiga-tryck .gallery {
+    /* Fyra kolumner */
+    column-count: 4;
+    /* Avstånd mellan kolumnerna */
+    column-gap: 12px;
+}
+
+/* Enskilda galleribilder */
+#fardiga-tryck .gallery-item {
+    /* Krav för kolumnlayouten */
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt på galleribilder */
+#fardiga-tryck .gallery-item:hover {
+    /* Lätt upplyft */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Sektionen som visar kunders egna uppladdade bilder */
+
+#kundprojekt {
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    /* Kantlinjer: Boxen får rundande hörn */
+    border-radius: 16px;
+    /* tunn ram för att markera sektionens avgränsning */
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/**
+*Grid
+* Bildgalleri layouten  
+*/
+#kundprojekt .gallery {
+    /* CSS Grid för att skapa flexibla kolumner */
+    display: grid;
+    /* Anpassar antal kolumner efter skärmbredd */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Varje enskild bilder i galleriet */
+#kundprojekt .gallery-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tillhörande hover-effekt */
+#kundprojekt .gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Bilden i varje galleriobjekt (bilder) */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transform: translateZ(0);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover-effekt på själva bilden */
+.gallery-item img:hover {
+    transform: scale(1.08) rotateX(1deg) rotateY(1deg);
+    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ===== CHECK OUT SIDA ======================================================================================= */
+
+/**
+* Mockup uppladdning.
+* Stylar formuläret där användaren kan ladda upp fil.
+*/
+.mock-upload-form {
+    display: flex;
+    /* Elementen staplas vertikalt */
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 450px;
+    margin: 2rem auto 4rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+main h1 {
+    text-align: center;
+    width: 100%;
+}
+
+/* Stil för etiketten som beskriver uppladdningsfältet */
+.mock-upload-form .upload-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Stil för texten INUTI etiketten */
+.mock-upload-form .upload-label span {
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Stil för själva filuppladdningsfältet */
+.mock-upload-form input[type="file"] {
+    display: block;
+    margin: 0 auto;
+    padding: 0.6rem;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background: #fafafa;
+    /* Pekare visas som hand vid hover */
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+/* Hover-effekt på filuppladdningsfältet */
+.mock-upload-form input[type="file"]:hover {
+    border-color: #bbb;
+}
+
+/* Stil för uppladdningsknappen */
+.mock-upload-form .upload-btn {
+    margin-top: 0.5rem;
+    width: fit-content;
+    align-self: center;
+    padding: 0.7rem 1.8rem;
+    border-radius: 8px;
+}
+
+/**
+* Checkout formuläret.
+* Still själva checkout-formuläret där användaren anger adress, betalning etc. 
+*/
+.checkout-form {
+    display: block;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Stylar alla inputfält, select-boxar och textarea i checkout-formuläret */
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    /* --- Inkludering padding i elementets totala bredd --- */
+    box-sizing: border-box;
+}
+
+/* Stil för köp-knappen i checkout-formuläret */
+.checkout-form button {
+    padding: 0.7rem 1.8rem;
+    border-radius: 8px;
+    background-color: #4E598C;
+    color: #FFF;
+    border: none;
+    /* --- Pekare blir hand --- */
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover-effekt för checkout-knappen */
+.checkout-form button:hover {
+    background-color: #7D4F50;
+}
+
+/**
+* Mockup varukorg.
+* Stillsättning: hela mockupen av varukorgen på sidan.
+*/
+.cart-mockup {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Stil för rubriken i varukorg-mockupen */
+.cart-mockup h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1.3rem;
+    color: #4E598C;
+    margin-bottom: 15px;
+}
+
+/* Still för varje enskild produkt i mockup-varukorgen */
+.cart-item-mockup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Bilden på varje produkt i varukorgen */
+.cart-item-mockup img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+/* Information om produkten (som namn & pris) */
+.item-info-mockup p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.item-info-mockup span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Stil för "ta bort" knappen/länken i varukorgen */
+.remove-mockup {
+    margin-left: auto;
+    cursor: pointer;
+    color: #7D4F50;
+    font-size: 1.2rem;
+}
+
+/* Totalbelopp i varukorg-mockup */
+.cart-total-mockup {
+    text-align: right;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+
+/* ===== FOOTER =========================================================================================== */
+
+/* Footer bakgrund och grundstil */
+footer {
+    background-color: #F1EFEF;
+    color: #28502E;
+    padding: 40px 20px;
+    margin-top: 60px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Rubriker i footern --- */
+footer h3 {
+    margin-bottom: 8px;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1rem;
+}
+
+/* TEXT: "Studio Egen. Din partner för personliga tryck och unika skaparkit". */
+footer h3:first-child {
+    color: #4E598C;
+    font-size: 1.1rem;
+}
+
+/* Länkar i footern */
+footer a {
+    color: #28502E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover-effekt för länkar i footern */
+footer a:hover {
+    color: #7D4F50;
+}
+
+/* Footer grid layout */
+.footer-grid {
+    /* Använder CSS Grid för layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+/* Sociala medier ikoner i footern */
+.footer-social .social-icon {
+    width: 50px;
+    height: 50px;
+    /* Vertikal centrering med texten */
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Kontakt titel i footern */
+.contact-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* ===== OBS! ANIMATIONER ====================================== */
+/* Tillagt efterhand */
+/* --- Fade-in uppåt animation --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        /* Startar osynlig */
+        transform: translateY(20px);
+        /* Flyttas ner 20px initialt */
+    }
+
+    to {
+        opacity: 1;
+        /* Slutlig opacitet */
+        transform: translateY(0);
+        /* Slutlig position */
+    }
+}
+
+/* --- Fade-in block animation --- */
+@keyframes fadeBlock {
+    from {
+        opacity: 0;
+        /* Startar osynlig */
+    }
+
+    to {
+        opacity: 1;
+        /* Slutlig opacitet */
+    }
+}
+
+
+/* ===== KAMPANJSIDAN SIDA ================================================================================ */
+
+.page-campaign {
+    background: #f2f2f2;
+    padding-top: 0;
+    /* Säkerställer att sidan börjar högst upp. Hade problem med placeringen på enbart denna sidan. */
+    margin-top: 0;
+}
+
+.campaign-hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    margin: 0 auto 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.campaign-hero h1 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.campaign-hero p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.campaign-section {
+    background: white;
+    width: 90%;
+    margin: 0 auto 50px auto;
+    /* behåll mittjustering och margin-bottom */
+    padding: 40px 5%;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.campaign-section h2 {
+    font-family: 'Dela Gothic One';
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 0;
+    /* tar bort extra utrymme ovanför rubrik */
+    margin-bottom: 30px;
+}
+
+.campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    justify-items: center;
+}
+
+.campaign-card {
+    text-align: center;
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    background: #fafafa;
+}
+
+.image-wrapper img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+.soft-tag {
+    position: absolute;
+    bottom: 12px;
+    /* ändrat från top */
+    right: 12px;
+    /* Ändrat från left */
+    background: rgba(255, 255, 255, 0.82);
+    padding: 2px 4px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    font-family: 'Nunito Sans';
+    color: #8e0606;
+    font-size: 0.6rem;
+}
+
+/* ===== OM OSS SIDA  ============================================================================================ */
+
+/* --- Container för section + aside --- */
+/* Flexbox används för att placera huvudtext (section) och snabbinfo (aside) bredvid varandra */
+.about-page .about-container {
+    display: flex;
+    /* Flexbox för horisontell layout */
+    gap: 40px;
+    /* Avstånd mellan section och aside */
+    justify-content: space-between;
+    /* Jämnt utrymme mellan elementen */
+    align-items: flex-start;
+    /* Börjar från toppen */
+    margin-top: 30px;
+    /* Litet avstånd från övre innehåll */
+}
+
+/**
+* Huvudsektion (Om oss).
+* Tar större del av utrymmet.
+*/
+.about-page .about-us {
+    flex: 2;
+    /* Tar ca. 2/3 av containerns bredd */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Rubriker i huvudsektionen */
+.about-page .about-us h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.about-page .about-us h2 {
+    font-size: 1.8rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Lista i huvudsektionen */
+.about-page .about-us ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+/* Aside (Snabbinfo/Kontakt) */
+/* Tar mindre del av utrymmet */
+.about-page .about-aside {
+    flex: 1;
+    /* --- Tar ca 1/3 av containerns bredd --- */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Rubriker i aside */
+.about-page .about-aside h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.about-page .about-aside h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Text i aside */
+.about-page .about-aside p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/**
+*Tillagt i efterhand.
+* Lätt hover-effekt på både section och aside.
+*/
+.about-page .about-us:hover,
+.about-page .about-aside:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== KUNDSERVICE SIDA ========================================================================================= */
+
+/* Container för huvudsektion + Q&A aside */
+.customer-service-page .customer-container {
+    display: flex;
+    /* Flexbox för horisontell layout */
+    gap: 40px;
+    /* Avstånd mellan main och aside */
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+/* Huvudsektionen (kontakttext + öppettider) */
+.customer-service-page .customer-main {
+    flex: 2;
+    /* Tar ca 2/3 av bredden */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Rubriker i huvudsektionen */
+.customer-service-page .customer-main h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.customer-service-page .customer-main h2 {
+    font-size: 1.8rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Stycken i huvudsektionen */
+.customer-service-page .customer-main p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Specifik styling för öppettider */
+.customer-service-page .customer-main .opening-hours {
+    background-color: rgba(240, 240, 240, 0.6);
+    padding: 15px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+/* Q&A / FAQ aside */
+.customer-service-page .customer-faq {
+    flex: 1;
+    /* Tar ca 1/3 av bredden */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Rubrik för Q&A */
+.customer-service-page .customer-faq h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+/* Enskilda Q&A-frågor */
+.customer-service-page .customer-faq .faq-item {
+    background-color: rgba(240, 240, 240, 0.6);
+    padding: 15px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt på varje FAQ-fråga */
+.customer-service-page .customer-faq .faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Frågor */
+.customer-service-page .customer-faq .faq-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #28502E;
+}
+
+/* Svar */
+.customer-service-page .customer-faq .faq-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4E598C;
+    margin: 0;
+}
+
+/* Lätt hover-effekt på både main och FAQ */
+.customer-service-page .customer-main:hover,
+.customer-service-page .customer-faq:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== VÅRA TJÄNSTER (Så funkar det) SIDA =======================================================================*/
+
+/* Hela sektionen */
+#tjanster {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt */
+#tjanster:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Rubriker i sektionen */
+#tjanster h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#tjanster h2 {
+    font-size: 1.8rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Stycken och listor */
+#tjanster p,
+#tjanster li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #4E598C;
+}
+
+/* Listor */
+#tjanster ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+#tjanster ul {
+    padding-left: 18px;
+    margin-bottom: 10px;
+}
+
+/* ===== Container för drop-down sektionen ===== */
+.how-it-works {
+    margin-top: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #4E598C;
+
+}
+
+.grid-container-toggle {
+    display: grid;
+    grid-template-columns: 2;
+    margin-right: 20px;
+    margin-left: 20px;
+    row-gap: 1rem;
+}
+
+.item-toggle-text {
+    grid-column: 1;
+
+}
+
+.item-toggle-img1 {
+    grid-column: 2;
+    align-self: end;
+    border-radius: 8px;
+
+}
+
+.item-toggle-text2 {
+    grid-column: 1;
+}
+
+.item-toggle-img2 {
+    grid-column: 2;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Huvudrubrik & underrubriker i drop-down */
+.how-it-works h1,
+.how-it-works h2 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* <details> som kort */
+.how-it-works details.steps-toggle {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(125, 79, 80, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt */
+.how-it-works details.steps-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Summary (har klickbar rubrik) */
+.how-it-works details summary {
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+    color: #28502E;
+    outline: none;
+}
+
+/* Ta bort standardtriangel */
+.how-it-works details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Text och listor inuti details */
+.how-it-works details p,
+.how-it-works details li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #4E598C;
+}
+
+/* Rubriker inuti details */
+.how-it-works details h3 {
+    font-size: 1.4rem;
+    color: #28502E;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.how-it-works details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+/* Listor */
+.how-it-works details ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.how-it-works details ul {
+    padding-left: 18px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* CTA-knappar */
+.how-it-works .cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #28502E;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.how-it-works .cta-button:hover {
+    background-color: #3a6b40;
+}
+
+.how-img-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ===== TILLAGT I EFTERHAND ======================================================================================== */
+/* ---- Bakgrundsbilder per varje unik sida ---- */
+
+/* Galleri-sidan */
+body.page-gallery {
+    background-image: url('images/backgruond2.webp');
+    /* Bildfilens plats */
+    background-size: cover;
+    /* Täcker hela sidan */
+    background-position: center;
+    /* Centrerad bild */
+    background-repeat: no-repeat;
+    /* Ingen upprepning */
+    background-attachment: fixed;
+    /* Får bilden att ligga still vid scroll */
+}
+
+/* Våra tjänster-sidan */
+body.page-services {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Kundservice-sidan */
+body.page-customerservice {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Om oss-sidan */
+body.page-about-us {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Varukorg-sidan */
+body.page-check-out {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Muggprodukt-sidan */
+body.page-cup-product {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* DYI-sidan */
+body.page-dyi-product {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Index(startsida)-sidan */
+body.page-index {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Produkt-sidan */
+body.page-products {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* T-shirt-product-sidan */
+body.page-tshirt-product {
+    background-image: url('images-background/background1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Poster sidan */
+body.page-posters-product {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Scarf sidan */
+body.page-scarf-product {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Calender (almanacka) sidan */
+body.page-calendar-product {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Kampanj sidan */
+body.page-campaign {
+    background-image: url('images-background/backgruond2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* ===== INDEX (Startsida) SIDA ================================================================================== */
+.index-page .container-intro-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.index-page .item-intro h1 {
+    font-size: 2.5rem;
+}
+
+.index-page .item-intro h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.index-page .item-intro p {
+    margin-bottom: 1rem;
+}
+
+.index-page .list-index,
+.index-page .list-aboutus {
+    list-style: disc;
+}
+
+.index-page .product-link {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+/* VIDARE ARBETE MED MAIN PAGE!*/
+/* ==== INDEX (Startsida) SIDA ==== */
+.index-page .container-intro-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* --- Intro-text (vänster block) --- */
+.index-page .item-intro {
+    position: relative;
+    /* för eventuell overlay */
+    background: rgba(255, 255, 255, 0.9);
+    /* ljus bakgrund bakom text */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+}
+
+/* Rubriker och text */
+.index-page .item-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.index-page .item-intro h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.index-page .item-intro p {
+    margin-bottom: 1rem;
+}
+
+/* Listor i intro och about us */
+.index-page .list-index,
+.index-page .list-aboutus {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Produktlänkar */
+.index-page .product-link {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4E598C;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.index-page .product-link:hover {
+    background-color: #333;
+}
+
+/* Bilder index */
+.index-page .item-img img.chair-and-poster {
+    width: 100%;
+    max-width: 1400px;
+    border-radius: 12px;
+}
+
+/* Område "Vår passion..." */
+.index-page section {
+    margin-top: 2rem;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* bakgrund bakom text */
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+}
+
+/* CTA-CARDS (klickbara bild-länkar) */
+.cta-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.cta-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    padding-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.cta-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Text-overlay på CTA-Cards */
+.cta-card .card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container-bottom-index {
+    display: flex;
+    align-items: flex-start; /* Alla block startar i toppen */
+    gap: 2rem;               /* Avstånd mellan blocken */
+    margin-top: 30px;
+}
+
+/* Vänster text */
+.about-index {
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* Logga i mitten */
+.why-us-image {
+    display: flex;
+    align-items: center;
+}
+
+.why-us-img {
+    max-width: 120px; /* justera storleken */
+    height: auto;
+}
+
+/* Höger text */
+.why-us-index {
+    max-width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    
+}
+
+/* OBS! storlek på logga (bild). Syntes inte annars */
+
+/* Logga i mitten */
+.why-us-image {
+    display: flex;
+    align-items: center;
+}
+  
+/*scroll bilder-länst ner*/
+div.img-scroll-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+div.scroll-container img {
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Recensioner*/
+
+/* Bakgrund för hela recensioner-sektionen */
+.aside-reviews {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 2rem;                 
+    background-color: #4E598C;    
+    border-radius: 12px;           
+    gap: 1rem;                      
+}
+
+/* Varje recension */
+.review-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #F1F1F1;     
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    max-width: 250px;
+    min-height: 250px;
+    text-align: center;
+}
+
+/* Bilden i recensionen */
+.review-img {
+    display: block;
+    margin: auto;
+}
+
+/* Stjärnor */
+.stars {
+    text-align: center;
+}
+
+
+/* ===== PRODUKT (där användaren kan välja produkter) SIDA ======================================================= */
+
+.product-gallery-wrapper {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Huvudrubrik */
+.product-gallery-wrapper .product-gallery-title {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 2.5rem;
+    color: #4E598C;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInUp 0.9s ease forwards;
+    animation-delay: 0s;
+}
+
+/* Underrubrik */
+.product-gallery-wrapper .product-gallery-subtitle {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    color: #4E598C;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInUp 0.9s ease forwards;
+    animation-delay: 0.3s;
+
+      /* Bakgrund runt texten */
+    display: inline-block;
+    background-color: #fff; 
+    padding: 2px 6px;                     
+    border-radius: 4px;                   
+}
+
+/* Grid för alla produkter */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Länkar runt varje produkt */
+.product-link {
+    display: block;
+    text-decoration: none;
+}
+
+/* Produktkort */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(125, 79, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+/* Bilden i kortet med hover-zoom */
+.product-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    transform: translateZ(0);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover på bilden */
+.product-card img:hover {
+    transform: scale(1.08) rotateX(1deg) rotateY(1deg);
+    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Produkttitlar */
+.product-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+    color: #333;
+}
+
+/* Underrubriker */
+.product-card h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* Pris */
+.product-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #28502E;
+}
+
+/* --- Fade-animationer --- */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== PRODUKTSIDOR - CSS för säkerställande enhetlighet! ========================================================= */
+
+.content-wrapper {
+    background-color: rgba(255, 255, 255, 0.98);
+    /* vit bakgrund med liten transparens */
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    /* begränsar bredden på text och bilder */
+    margin: 2rem auto;
+    /* centrerar innehållet */
+}
+
+/* Grid-layout för olika produkter */
+.mugs-grid,
+.dyi-grid,
+.posters-grid,
+.scarfs-grid,
+.tshirt-grid,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Huvudbild och rubriker */
+.mugs-header-img,
+.dyi-header-img,
+.posters-header-img,
+.scarfs-header-img,
+.tshirt-header-img,
+.calendar-header-img {
+    text-align: center;
+}
+
+.mugs-header-img img,
+.dyi-header-img img,
+.posters-header-img img,
+.scarfs-header-img img,
+.tshirt-header-img img,
+.calendar-header-img img {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 1rem;
+}
+
+/* Filter och formulär */
+.mugs-filter-boxes,
+.dyi-filter-boxes,
+.posters-filter-boxes,
+.scarfs-filter-boxes,
+.tshirt-filter-boxes,
+.calendar-filter-boxes {
+    margin-bottom: 1rem;
+}
+
+.btn-nr {
+    margin-top: 0.5rem;
+}
+
+/* Preview-sektion */
+.mugs-preview .img-container,
+.dyi-preview .img-container,
+.posters-preview .img-container,
+.scarfs-preview .img-container,
+.tshirt-preview .img-container,
+.calendar-preview .img-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.mugs-preview img,
+.dyi-preview img,
+.posters-preview img,
+.scarfs-preview img,
+.tshirt-preview img,
+.calendar-preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-size {
+    margin-right: 0.5rem;
+}
+
+/* Lägg i varukorg */
+.mugs-to-basket,
+.dyi-to-basket,
+.posters-to-basket,
+.scarfs-to-basket,
+.tshirt-to-basket,
+.calendar-to-basket {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mugs-to-basket a,
+.dyi-to-basket a,
+.posters-to-basket a,
+.scarfs-to-basket a,
+.tshirt-to-basket a,
+.calendar-to-basket a {
+    padding: 0.8rem 1.5rem;
+    background-color: #7d4f50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.mugs-to-basket a:hover,
+.dyi-to-basket a:hover,
+.posters-to-basket a:hover,
+.scarfs-to-basket a:hover,
+.tshirt-to-basket a:hover,
+.calendar-to-basket a:hover {
+    background-color: #5c3a3b;
+}
+/* ==== HÄR ÄR ALLA PRODUKTSIDORNA SOM MALL!!! ==== */
+
+/* Wrapper */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Omfattar vänster och höger block (kontainer) --- */
+.product-container {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Blocken */
+.product-predefined,
+.product-custom {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Rubriker */
+h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Previews (vänster block) --- */
+.product-previews {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+/* Alla previews döljs som standard */
+.product-previews .preview {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/**
+* Visa vald preview (upp till 10 previews).
+* När en radio-knapp (prod1–prod10) är markerad visas endast den preview som motsvarar radio-knappen.
+*/
+#prod1:checked~.product-previews .preview1,
+#prod2:checked~.product-previews .preview2,
+#prod3:checked~.product-previews .preview3,
+#prod4:checked~.product-previews .preview4,
+#prod5:checked~.product-previews .preview5,
+#prod6:checked~.product-previews .preview6,
+#prod7:checked~.product-previews .preview7,
+#prod8:checked~.product-previews .preview8,
+#prod9:checked~.product-previews .preview9,
+#prod10:checked~.product-previews .preview10 {
+    /* blocken gör att endast den valda preview-bilden visas. Vet ej hur lösa för att behålla mallen
+    och slippa dela upp allt på 6 olika sidor */
+    display: block;
+}
+
+/**
+* Fast preview (höger block).
+* Den “fast” previewen visas alltid oberoende av thumbnail-val eftersom användaren laddar upp eget motiv.
+Inga thumbnails. 
+*/
+.product-preview-img {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    display: block;
+    box-sizing: border-box;
+}
+
+/**
+* Preview hover.
+* När man hovrar över en preview eller fast preview ändras kantfärgen.
+*/
+.product-previews .preview:hover,
+.product-preview-img:hover {
+    border-color: #000;
+}
+
+/**
+* Thumbnails.
+* Grid-layout för thumbnails under previews.
+*/
+.product-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0.3rem;
+}
+
+.product-thumbnails label {
+    cursor: pointer;
+}
+
+.product-thumbnails img {
+    width: 70px;
+    height: 70px;
+    /* Beskär bilden för att fylla boxen utan att förvränga */
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    /* Standardram runt thumbnail */
+    border: 2px solid #ccc;
+    transition: 0.2s ease;
+}
+
+/**
+* Markerad thumbnail (upp till 10 previews).
+* När man hovrar över en thumbnail eller när den motsvarande radio-knappen är markerad.
+*/
+.product-thumbnails img:hover,
+/* --- Markerar thumbnail för den valda preview-bilden --- */
+#prod1:checked~.product-previews~.product-thumbnails label[for="prod1"] img,
+#prod2:checked~.product-previews~.product-thumbnails label[for="prod2"] img,
+#prod3:checked~.product-previews~.product-thumbnails label[for="prod3"] img,
+#prod4:checked~.product-previews~.product-thumbnails label[for="prod4"] img,
+#prod5:checked~.product-previews~.product-thumbnails label[for="prod5"] img,
+#prod6:checked~.product-previews~.product-thumbnails label[for="prod6"] img,
+#prod7:checked~.product-previews~.product-thumbnails label[for="prod7"] img,
+#prod8:checked~.product-previews~.product-thumbnails label[for="prod8"] img,
+#prod9:checked~.product-previews~.product-thumbnails label[for="prod9"] img,
+#prod10:checked~.product-previews~.product-thumbnails label[for="prod10"] img {
+    /* --- Markerar den aktiva thumbnailen med svart kant ---*/
+    border-color: #000;
+}
+
+.product-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 1rem;
+    /* större avstånd mellan rader (t.ex. 1,4 / 2,5 / 3,6) */
+    grid-column-gap: 0.3rem;
+    /* samma avstånd i sidled som innan */
+}
+
+/* Pris/antal/köp  */
+.product-price {
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+/* --- Antal med + / - --- */
+.product-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-quantity .btn-quantity {
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.product-quantity .qty-number {
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+
+.btn-quantity:hover {
+    border-color: #000;
+}
+
+/* --- Lägg i varukorg längst ned --- */
+.product-predefined,
+.product-custom {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-add-to-cart {
+    margin-top: auto;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #333;
+}
+
+/* --- Ladda upp (användaren kan ladda upp bild) --- */
+.upload-form input[type="file"] {
+    display: block;
+}
+
+.upload-form input,
+.cta.upload-btn {
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.cta.upload-btn {
+    margin-top: 0.5rem;
+}
+
+.cta.upload-btn:hover {
+    border-color: #000;
+}
+
+/* --- Val av färg --- */
+.color-picker {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-picker label {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.color-white { background-color: #fff; }
+.color-black { background-color: #000; }
+.color-green { background-color: #247e51; }
+.color-burgundy { background-color: #a12e41; }
+.color-blue { background-color: #0469ac; }
+
+input[name="color"]:checked + label {
+    border-color: #0011ff;
+}
+
+/* --- Storlek --- */
+.size-picker {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.size-picker label {
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.size-picker label:hover,
+.size-picker input:checked + label {
+    border-color: #000;
+}
+
+/* --- Landskap eller porträtt-posters --- */
+.shape-picker {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shape-picker label {
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.shape-picker label:hover,
+.shape-picker input:checked + label {
+    border-color: #000;
+}
+
+/* --- Edit och vy-knappar --- */
+.edit-btn {
+    background-color: #8a8a8a;
+    color: white;
+    border-radius: 3px;
+    border-color: #757575;
+    padding: 10px;
+    font-size: 12pt;
+    background-image: -webkit-radial-gradient(#757575, #a3a3a3);
+    margin: 5px;
+}
+
+.edit-btn:hover {
+    transform: translateY(-2px);
+    background-color: #555;
+    color: white;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-view-size {
+    margin-top: 5px;
+    border-radius: 5px;
+    border-color: #d4d4d4;
+    padding: 5px 10px;
+}
+
+.btn-view-size:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-color: #666;
+}
+
+/**
+* LÄGGER TILL LÄNGST NER FÖR ATT TIDIGARE REGLER EJ SKA SKRIVA ÖVER!
+* Berör en knapp som tar användaren tillbaka till produktsidan.
+*/
+
+.btn-back-to-shop {
+    display: inline-block;
+    margin: 1rem 2rem;       
+    padding: 0.5rem 1rem;
+    background-color: #7d4f50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-back-to-shop:hover {
+    background-color: #5c3a3b;
+    transform: translateY(-2px);
+}
+
+.btn-back-to-shop {
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+}
+
